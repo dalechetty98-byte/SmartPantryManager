@@ -1,0 +1,30 @@
+# Smart Pantry Manager - Development Checklist
+
+- [ ] Create Android Studio Java project
+- [ ] Configure Gradle and dependencies
+- [ ] Create SQLite database helper
+- [ ] Create pantry model
+- [ ] Implement pantry CREATE
+- [ ] Implement pantry READ
+- [ ] Implement pantry UPDATE
+- [ ] Implement pantry DELETE
+- [ ] Add RecyclerView and custom PantryAdapter
+- [ ] Seed at least 15 recipes
+- [ ] Implement strict ingredient matching
+- [ ] Implement quantity comparison
+- [ ] Implement simple unit aliases/conversions
+- [ ] Implement Suggestions screen
+- [ ] Implement Recipe Detail screen
+- [ ] Implement Settings screen
+- [ ] Add input validation
+- [ ] Test persistence after restart
+- [ ] Test insufficient quantities
+- [ ] Test partial matches are excluded
+- [ ] Test singular/plural ingredient matching
+- [ ] Test navigation and Intents
+- [ ] Improve UI before final submission
+- [ ] Create genuine incremental GitHub commits
+- [ ] Add final GitHub URL to report
+- [ ] Record required demonstration video
+- [ ] Complete written report
+- [ ] Build final submission ZIP
