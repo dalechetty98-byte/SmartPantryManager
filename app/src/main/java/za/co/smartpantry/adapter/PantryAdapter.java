@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.Locale;
 
 import za.co.smartpantry.R;
-import za.co.smartpantry.model.PantryItem;
+import za.co.smartpantry.model.PantryItem;import java.util.ArrayList;import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder> {
     public interface Listener {
@@ -22,16 +23,41 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
     }
 
     private final List<PantryItem> items;
+    private final List<PantryItem> allItems;
     private final Listener listener;
 
     public PantryAdapter(List<PantryItem> items, Listener listener) {
         this.items = items;
+        this.allItems = new ArrayList<>(items);
         this.listener = listener;
     }
 
+
     public void replaceData(List<PantryItem> newItems) {
+    items.clear();
+    items.addAll(newItems);
+
+    allItems.clear();
+    allItems.addAll(newItems);
+
+    notifyDataSetChanged();
+}
+
+    public void filter(String query) {
         items.clear();
-        items.addAll(newItems);
+
+        if (query == null || query.trim().isEmpty()) {
+            items.addAll(allItems);
+        } else {
+            String searchText = query.trim().toLowerCase();
+
+            for (PantryItem item : allItems) {
+                if (item.getName().toLowerCase().contains(searchText)) {
+                    items.add(item);
+                }
+            }
+        }
+
         notifyDataSetChanged();
     }
 
