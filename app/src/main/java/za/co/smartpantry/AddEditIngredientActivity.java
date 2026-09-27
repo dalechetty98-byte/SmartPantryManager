@@ -53,7 +53,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         String u = unit.getText().toString().trim();
         String e = expiry.getText().toString().trim();
 
-        if (TextUtils.isEmpty(n)) {
+        if (TextUtils.isEmpty(n.trim())) {
             name.setError("Ingredient name is required");
             name.requestFocus();
             return;
@@ -63,7 +63,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
             quantity.requestFocus();
             return;
         }
-        if (TextUtils.isEmpty(u)) {
+        if (TextUtils.isEmpty(u.trim())) {
             unit.setError("Unit is required");
             unit.requestFocus();
             return;
