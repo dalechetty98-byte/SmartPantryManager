@@ -52,5 +52,3 @@ Edit Chicken to 300 g. Chicken Rice should now appear.
 
 This demonstrates the strict matching rule: a recipe is suggested only when every required ingredient is present in at least the required quantity.
 
-## Important academic note
-This project is a learning scaffold. Review, test, understand and customise the implementation before submission. Git commits should represent genuine incremental development, and the student should be able to explain the code during assessment.
