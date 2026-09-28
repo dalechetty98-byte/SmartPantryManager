@@ -254,7 +254,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         aliases.put("liters", "l"); aliases.put("liter", "l");
         aliases.put("pieces", "piece"); aliases.put("pcs", "piece");
         aliases.put("piece", "piece"); aliases.put("items", "piece"); aliases.put("item", "piece");
-        return aliases.getOrDefault(u, u);
+        return aliases.containsKey(u) ? aliases.get(u) : u;
     }
 
     private boolean isMass(String u) { return u.equals("g") || u.equals("kg"); }
