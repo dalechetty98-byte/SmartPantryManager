@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         add.setOnClickListener(v ->
                 startActivity(new Intent(this, AddEditIngredientActivity.class)));
-        suggestions.setOnClickListener(v ->
-                startActivity(new Intent(this, SuggestedRecipesActivity.class)));
+        suggestions.setOnClickListener( v ->
+                startActivity(new Intent(this, RecipesActivity.class)));
         settings.setOnClickListener(v ->
                 startActivity(new Intent(this, SettingsActivity.class)));
     }
