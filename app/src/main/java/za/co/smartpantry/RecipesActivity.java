@@ -1,5 +1,6 @@
 package za.co.smartpantry;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,32 +15,37 @@ import za.co.smartpantry.model.Recipe;
 
 public class RecipesActivity extends AppCompatActivity {
 
+    private RecyclerView recyclerRecipes;
     private DatabaseHelper db;
-    private RecipeAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
 
+        recyclerRecipes = findViewById(R.id.recyclerRecipes);
+
         db = new DatabaseHelper(this);
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerRecipes);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         List<Recipe> recipes = db.getAllRecipes();
 
-        adapter = new RecipeAdapter(recipes, recipe -> {
-            // Open recipe details when a recipe is selected
-            android.content.Intent intent =
-                    new android.content.Intent(RecipesActivity.this, RecipeDetailActivity.class);
+        recyclerRecipes.setLayoutManager(new LinearLayoutManager(this));
 
-            intent.putExtra("recipe_id", recipe.getId());
+        RecipeAdapter adapter = new RecipeAdapter(
+                recipes,
+                recipe -> {
+                    Intent intent = new Intent(
+                            RecipesActivity.this,
+                            RecipeDetailActivity.class
+                    );
 
-            startActivity(intent);
-        });
+                    // Send the recipe ID to RecipeDetailActivity
+                    intent.putExtra("recipeId", recipe.getId());
 
-        recyclerView.setAdapter(adapter);
+                    startActivity(intent);
+                }
+        );
+
+        recyclerRecipes.setAdapter(adapter);
     }
 }
